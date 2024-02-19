@@ -1,0 +1,9 @@
+sample django project idea:
+
+a site that takes in text data and turns it into structural data and builds a knowledge graph on it and then visualize
+ it in the site,
+
+ frontend: vue (to eradicate extra development obstacle),
+ backend: django,
+ database: neo4j or similar,
+ further sophistication: user can multiplex the params to change the graph content and viewing style
