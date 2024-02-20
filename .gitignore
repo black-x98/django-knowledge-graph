@@ -134,3 +134,11 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw*
+node_modules
+/dist
+
+# Log files
+pnpm-debug.log*
+
+# Editor directories and files
+*.sw?
