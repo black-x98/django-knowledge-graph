@@ -5,5 +5,6 @@ a site that takes in text data and turns it into structural data and builds a kn
 
  frontend: vue (to eradicate extra development obstacle),
  backend: django,
- database: neo4j or similar,
+
+ database: postgres (neo4j or similar won't be suited with django orm - which is one my main goals to learn here)
  further sophistication: user can multiplex the params to change the graph content and viewing style
