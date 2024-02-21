@@ -1,7 +1,8 @@
 from django.contrib.auth.models import Group, User
 from rest_framework import permissions, viewsets
 
-from api.serializers import GroupSerializer, UserSerializer
+from .serializers import GroupSerializer, UserSerializer, LegoColorSerializer
+from .models import LegoColors
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -20,3 +21,8 @@ class GroupViewSet(viewsets.ModelViewSet):
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
     permission_classes = [permissions.IsAuthenticated]
+
+
+class GetLegoColors(viewsets.ModelViewSet):
+    queryset = LegoColors.objects.all()
+    serializer_class = LegoColorSerializer
