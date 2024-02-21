@@ -14,7 +14,7 @@ class AuthGroup(models.Model):
     name = models.CharField(unique=True, max_length=150)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'auth_group'
 
 
@@ -24,7 +24,7 @@ class AuthGroupPermissions(models.Model):
     permission = models.ForeignKey('AuthPermission', models.DO_NOTHING)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'auth_group_permissions'
         unique_together = (('group', 'permission'),)
 
@@ -35,7 +35,7 @@ class AuthPermission(models.Model):
     codename = models.CharField(max_length=100)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'auth_permission'
         unique_together = (('content_type', 'codename'),)
 
@@ -53,7 +53,7 @@ class AuthUser(models.Model):
     date_joined = models.DateTimeField()
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'auth_user'
 
 
@@ -63,7 +63,7 @@ class AuthUserGroups(models.Model):
     group = models.ForeignKey(AuthGroup, models.DO_NOTHING)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'auth_user_groups'
         unique_together = (('user', 'group'),)
 
@@ -74,7 +74,7 @@ class AuthUserUserPermissions(models.Model):
     permission = models.ForeignKey(AuthPermission, models.DO_NOTHING)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'auth_user_user_permissions'
         unique_together = (('user', 'permission'),)
 
@@ -89,7 +89,7 @@ class DjangoAdminLog(models.Model):
     user = models.ForeignKey(AuthUser, models.DO_NOTHING)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'django_admin_log'
 
 
@@ -98,7 +98,7 @@ class DjangoContentType(models.Model):
     model = models.CharField(max_length=100)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'django_content_type'
         unique_together = (('app_label', 'model'),)
 
@@ -110,7 +110,7 @@ class DjangoMigrations(models.Model):
     applied = models.DateTimeField()
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'django_migrations'
 
 
@@ -120,7 +120,7 @@ class DjangoSession(models.Model):
     expire_date = models.DateTimeField()
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'django_session'
 
 
@@ -130,7 +130,7 @@ class LegoColors(models.Model):
     is_trans = models.CharField(max_length=1)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'lego_colors'
 
 
@@ -139,7 +139,7 @@ class LegoInventories(models.Model):
     set_num = models.CharField(max_length=255)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'lego_inventories'
 
 
@@ -151,7 +151,7 @@ class LegoInventoryParts(models.Model):
     is_spare = models.BooleanField()
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'lego_inventory_parts'
 
 
@@ -161,7 +161,7 @@ class LegoInventorySets(models.Model):
     quantity = models.IntegerField()
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'lego_inventory_sets'
 
 
@@ -169,7 +169,7 @@ class LegoPartCategories(models.Model):
     name = models.CharField(max_length=255)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'lego_part_categories'
 
 
@@ -179,7 +179,7 @@ class LegoParts(models.Model):
     part_cat_id = models.IntegerField()
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'lego_parts'
 
 
@@ -191,7 +191,7 @@ class LegoSets(models.Model):
     num_parts = models.IntegerField(blank=True, null=True)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'lego_sets'
 
 
@@ -200,5 +200,5 @@ class LegoThemes(models.Model):
     parent_id = models.IntegerField(blank=True, null=True)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'lego_themes'
