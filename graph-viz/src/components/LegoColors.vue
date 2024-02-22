@@ -19,13 +19,7 @@ export default {
     methods: {
         async fetchLegoColors(){
             let resp = await axios.get(
-                "http://127.0.0.1:8000/lego-colors",
-                {
-                    headers: {
-                    "Access-Control-Allow-Origin": "*",
-                    "Content-type": "text/html"
-                    }
-                }
+                "http://127.0.0.1:8000/lego-colors/"
             );
             this.legoColors = resp;
         }
