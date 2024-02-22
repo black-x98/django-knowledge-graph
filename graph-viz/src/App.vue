@@ -1,6 +1,5 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <lego-colors msg="Welcome to Your Vue.js App"/>
+  <lego-colors/>
 </template>
 
 <script>

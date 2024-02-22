@@ -1,12 +1,15 @@
-<template style="max-width: 60px">
-    <div>Lego Colors</div>
+<template>
+    <div style="background-color: #dddddd;">
+    <div style="font: 24px bold; font-weight: 700; padding: 10px;">Lego Colors</div>
     <div v-for="color in legoColors" :key="color">
-        <div style="display: flex; justify-content: space-around;">
-        <div>{{color.name}}</div>
-        <div :style="{backgroundColor: '#' + color.rgb, fontSize: '18px', height: '14px', width: '40px' }"></div>
+        <div style="display: flex; justify-content: center;">
+        <div style="display: flex; justify-content: space-between;">
+            <div style="padding-right: 10px">{{color.name}}</div>
+            <div :style="{backgroundColor: '#' + color.rgb, fontSize: '18px', height: '14px', width: '40px' }"></div>
+        </div>
         </div>
     </div>
-    <div>Another Div</div>
+    </div>
 </template>
 
 <script>
