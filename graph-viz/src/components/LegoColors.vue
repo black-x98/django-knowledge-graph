@@ -1,8 +1,12 @@
-<template>
+<template style="max-width: 60px">
     <div>Lego Colors</div>
-    <div v-for="color in legoColors" :key="color.rgb">
-    {{color.name}}
+    <div v-for="color in legoColors" :key="color">
+        <div style="display: flex; justify-content: space-around;">
+        <div>{{color.name}}</div>
+        <div :style="{backgroundColor: '#' + color.rgb, fontSize: '18px', height: '14px', width: '40px' }"></div>
+        </div>
     </div>
+    <div>Another Div</div>
 </template>
 
 <script>
@@ -21,7 +25,7 @@ export default {
             let resp = await axios.get(
                 "http://127.0.0.1:8000/lego-colors/"
             );
-            this.legoColors = resp;
+            this.legoColors = resp.data;
         }
     }
 };
