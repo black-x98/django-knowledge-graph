@@ -1,8 +1,8 @@
 from django.contrib.auth.models import Group, User
 from rest_framework import permissions, viewsets
 
-from .serializers import GroupSerializer, UserSerializer, LegoColorSerializer
-from .models import LegoColors
+from .serializers import GroupSerializer, UserSerializer, LegoColorSerializer, LegoInventorySetsSerializer
+from .models import LegoColors, LegoInventorySets
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -26,3 +26,8 @@ class GroupViewSet(viewsets.ModelViewSet):
 class GetLegoColors(viewsets.ModelViewSet):
     queryset = LegoColors.objects.all()
     serializer_class = LegoColorSerializer
+
+
+class GetLegoInventorySets(viewsets.ModelViewSet):
+    queryset = LegoInventorySets.objects.all()
+    serializer_class = LegoInventorySetsSerializer

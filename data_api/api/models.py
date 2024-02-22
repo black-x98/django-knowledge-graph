@@ -156,7 +156,7 @@ class LegoInventoryParts(models.Model):
 
 
 class LegoInventorySets(models.Model):
-    inventory_id = models.IntegerField()
+    inventory_id = models.IntegerField(primary_key=True)
     set_num = models.CharField(max_length=255)
     quantity = models.IntegerField()
 
