@@ -1,3 +1,6 @@
+the current plan is: will use the lego dataset analytics video from youtube to take the themes for graphs
+
+
 sample django project idea:
 
 a site that takes in text data and turns it into structural data and builds a knowledge graph on it and then visualize
