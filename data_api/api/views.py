@@ -1,8 +1,9 @@
 from django.contrib.auth.models import Group, User
+from django.db.models import Sum
 from rest_framework import permissions, viewsets
 
 from .serializers import GroupSerializer, UserSerializer, LegoColorSerializer, LegoInventorySetsSerializer, \
-    LegoSetsSerializer
+    LegoSetsSerializer, LegoPartsPerYearSerializer
 from .models import LegoColors, LegoInventorySets, LegoSets
 
 
@@ -36,7 +37,8 @@ class GetLegoInventorySets(viewsets.ModelViewSet):
 
 
 class GetLegoPartsPerYear(viewsets.ModelViewSet):
-    queryset = LegoSets.objects.raw("select max(set_num), year, count(*) from lego_sets group by year order by year;")
-    # queryset = LegoSets.objects.raw("select set_num, year from lego_sets limit 10;")
+    # queryset = LegoSets.objects.raw("select max(set_num), year, sum(num_parts) from lego_sets group by year order by year limit 10;")
+    queryset = LegoSets.objects.values("year").annotate(total_parts=Sum('num_parts'))
+
     print(queryset)
-    serializer_class = LegoSetsSerializer
+    serializer_class = LegoPartsPerYearSerializer

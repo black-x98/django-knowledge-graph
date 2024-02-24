@@ -1,5 +1,5 @@
 from django.contrib.auth.models import Group, User
-from .models import LegoColors, LegoInventorySets, LegoSets
+from .models import LegoColors, LegoInventorySets, LegoSets, LegoPartsPerYear
 from rest_framework import serializers
 
 
@@ -30,4 +30,10 @@ class LegoInventorySetsSerializer(serializers.ModelSerializer):
 class LegoSetsSerializer(serializers.ModelSerializer):
     class Meta:
         model = LegoSets
+        fields = "__all__"
+
+
+class LegoPartsPerYearSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = LegoPartsPerYear
         fields = "__all__"

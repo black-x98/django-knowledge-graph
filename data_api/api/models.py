@@ -183,6 +183,11 @@ class LegoParts(models.Model):
         db_table = 'lego_parts'
 
 
+class LegoPartsPerYear(models.Model):
+    year: int
+    total_parts: int
+
+
 class LegoSets(models.Model):
     set_num = models.CharField(primary_key=True, max_length=255)
     name = models.CharField(max_length=255)
