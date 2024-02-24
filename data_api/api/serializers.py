@@ -1,5 +1,5 @@
 from django.contrib.auth.models import Group, User
-from .models import LegoColors, LegoInventorySets
+from .models import LegoColors, LegoInventorySets, LegoSets
 from rest_framework import serializers
 
 
@@ -24,4 +24,10 @@ class LegoColorSerializer(serializers.ModelSerializer):
 class LegoInventorySetsSerializer(serializers.ModelSerializer):
     class Meta:
         model = LegoInventorySets
+        fields = "__all__"
+
+
+class LegoSetsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = LegoSets
         fields = "__all__"
